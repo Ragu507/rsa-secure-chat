@@ -1,0 +1,27 @@
+<!-- send_message.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Send Message{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-8">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Send Message</h2>
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+      <div>
+        <label for="recipient" class="block text-sm font-medium text-gray-700 mb-1">Recipient</label>
+        {{ form.recipient }}
+      </div>
+      <div>
+        <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+        {{ form.content }}
+      </div>
+      <div class="flex justify-center">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

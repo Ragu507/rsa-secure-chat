@@ -1,0 +1,25 @@
+<!-- registration/login.html -->
+
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white shadow-md rounded px-8 py-8">
+    <h2 class="text-3xl mb-6 text-center font-bold text-gray-800">Welcome Back!</h2>
+    <form method="post" class="space-y-6">
+        {% csrf_token %}
+        <div>
+            <label for="username" class="block text-lg font-medium text-gray-700">Username</label>
+            <input type="text" name="username" id="username" autocomplete="username" required
+                class="mt-1 focus:border-blue-500 block w-full py-3 px-4 rounded-md bg-gray-100 border-gray-300 placeholder-gray-500 text-gray-800 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+        </div>
+        <div>
+            <label for="password" class="block text-lg font-medium text-gray-700">Password</label>
+            <input type="password" name="password" id="password" autocomplete="current-password" required
+                class="mt-1  focus:border-blue-500 block w-full py-3 px-4 rounded-md bg-gray-100 border-gray-300 placeholder-gray-500 text-gray-800 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">Login</button>
+    </form>
+    <p class="text-gray-600 text-xs mt-4 text-center">Don't have an account yet? <a href="{% url 'register' %}" class="text-blue-500 hover:text-blue-600">Sign up here</a></p>
+</div>
+{% endblock %}

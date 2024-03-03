@@ -1,0 +1,33 @@
+<!-- templates/home.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold mb-4">About Cryptography</h2>
+        <p class="text-lg text-gray-700">
+            Cryptography is the practice and study of techniques for secure communication in the presence of third parties.
+            It enables users to protect their data and communication from unauthorized access and tampering.
+        </p>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between mb-8 space-y-4 md:space-y-0">
+        <a href="{% url 'send_message' %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center md:text-left">
+            Send Message
+        </a>
+        <a href="{% url 'view_messages' %}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center md:text-left">
+            Received Messages
+        </a>
+    </div>
+    <div>
+        <h2 class="text-2xl font-bold mb-4">Features</h2>
+        <ul class="list-disc list-inside">
+            <li class="mb-2">End-to-end encryption for secure messaging</li>
+            <li class="mb-2">User-friendly interface for message management</li>
+            <li class="mb-2">Quick and easy message sending and receiving</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

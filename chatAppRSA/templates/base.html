@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Messaging App{% endblock %}</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="bg-gray-100 font-roboto">
+    <nav class="bg-gray-800 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-lg font-bold flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10 2a8 8 0 0 0-8 8c0 4.418 3.582 8 8 8s8-3.582 8-8a8 8 0 0 0-8-8zm4.441 12.684l-3.135-3.136a1.5 1.5 0 0 1-1.768-1.768l-3.135-3.136a6 6 0 1 1 8.038 8.04zM6.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                        clip-rule="evenodd" />
+                </svg>
+                Messaging App
+            </a>
+            <ul class="flex space-x-4">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="text-white hover:text-gray-300">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}" class="text-white hover:text-gray-300">Login</a></li>
+                <li><a href="{% url 'register' %}" class="text-white hover:text-gray-300">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="bg-gray-800 py-4 mt-8 text-center text-white">
+        <div class="container mx-auto">
+            &copy; 2024 Messaging App. All rights reserved.
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

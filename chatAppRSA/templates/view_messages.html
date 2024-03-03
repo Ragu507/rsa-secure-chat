@@ -1,0 +1,25 @@
+<!-- view_messages.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}View Messages{% endblock %}
+
+{% block content %}
+<div class="container mx-auto">
+  <div class="my-8">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Received Messages</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% if user_messages %}
+        {% for message in user_messages %}
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-2">From: {{ message.sender.username }}</h3>
+            <p class="text-gray-600">{{ message.content }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="text-center text-gray-500">No messages available.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
